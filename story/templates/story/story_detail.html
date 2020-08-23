@@ -22,7 +22,7 @@
 
     <div class="row">
         <div class="col-6">
-            <h2>You may also like:</h2>
+            <h2>You may also like</h2>
             {% for x in like_story %}
 
             <a href="{{x.get_absolute_url}}">
@@ -38,7 +38,7 @@
                 <a href="{{post.get_absolute_url}}"><h5>{{post.title}}</h5></a>
             
             {% empty %}
-            There are no Similar Post yet.
+            There are no similar Post yet.
 
             {%  endfor %}
         </div>
