@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>{{story.title}}</title>
+{% endblock %}
+
+
+{%  block body  %}
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="text-center mt-2">{{story.title}}</h2>
+            <hr>
+            <p class="lead">{{story.body|safe}}</p>
+        </div>
+    </div>
+
+    <hr>
+
+
+    <br>
+
+    <div class="row">
+        <div class="col-6">
+            <h2>You may also like:</h2>
+            {% for x in like_story %}
+
+            <a href="{{x.get_absolute_url}}">
+                <h5>{{x.title}}</h5>
+            </a>
+
+            {% endfor  %}
+        </div>
+        <div class="col-6">
+            <h2>Similar Posts</h2>
+            {% for post in similar_posts %}
+            
+                <a href="{{post.get_absolute_url}}"><h5>{{post.title}}</h5></a>
+            
+            {% empty %}
+            There are no Similar Post yet.
+
+            {%  endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
